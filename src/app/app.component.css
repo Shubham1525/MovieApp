@@ -1,0 +1,31 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 20px;
+    }
+
+.content > * {
+    box-sizing: border-box;
+    }
+
+.content > *:not(:last-child){
+    margin-right: 16px;
+  }
+
+.cardListItem {
+    flex: 0 1 calc(25% - 20px);
+  }
+
+  @media screen and (max-width: 599px) {
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .content > *:not(:last-child) {
+      margin-right: unset;
+      margin-bottom: 32px;
+    }
+  }
