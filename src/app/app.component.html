@@ -67,10 +67,10 @@
 <div id="demo" class="collapse">
 Lorem ipsum dolor text....
 </div-->
-<div class="container">
+<!--div class="container">
 <div class="row">
 <div class="col-md-4">
-<div class="card" style="width: 15rem;" *ngFor="let movie of movies">
+<div class="card content" style="width: 15rem;" *ngFor="let movie of movies">
   <img class="card-img-top" data-bs-toggle="collapse" data-bs-target="collapser" role="button" aria-expanded="false" aria-controls="collapser" src="{{movie.thumbnailUrl}}" >
   <div class="collapse"  id="collapser">
     <div class="card-block">
@@ -82,4 +82,25 @@ Lorem ipsum dolor text....
 </div>
 </div>
 </div>
+</div-->
+
+<div class="content">
+  <!--div fxLayout="row wrap">
+    <div fxFlex="25%"-->
+  <ng-container *ngFor="let movie of movies">
+<mat-card class="mat-elevation-z4 cardListItem">
+  <!--mat-card-header>
+    <mat-card-title>Mountains temp</mat-card-title>
+  </mat-card-header-->
+  <!--img class="card-img-top" data-bs-toggle="collapse" data-bs-target="collapser" role="button" aria-expanded="false" aria-controls="collapser" src="{{movie.thumbnailUrl}}" -->
+  <img mat-card-image-top src="{{movie.thumbnailUrl}}" alt="Photo of a Shiba Inu" data-bs-toggle="collapse" data-bs-target="collapser" role="button" aria-expanded="false" aria-controls="collapser">
+  <mat-card-content  id="collapser">
+    <h2>{{movie.title}}</h2>
+    <p class="card-text">Some example text.</p>
+    <a href="#" class="btn btn-primary">View Summary</a>
+  </mat-card-content>
+</mat-card>
+</ng-container>
 </div>
+<!--/div>
+</div-->
