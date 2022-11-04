@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Movies } from 'src/app/Interfaces/movie';
-import { NewService } from '../new.service';
 import { HomeService } from './home.service';
 
 @Component({
@@ -13,7 +12,7 @@ export class HomepageComponent implements OnInit {
   title = 'MovieApp';
   movies : Movies[]=[];
 
-  constructor(private homeService:NewService) { }
+  constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
     this.homeService.GetAllTrendingMovies().subscribe(data=>
