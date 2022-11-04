@@ -7,11 +7,11 @@ import { Movies } from 'src/app/Interfaces/movie';
   providedIn: 'root'
 })
 export class HomeService {
- private baseUrl='https://localhost:8082/GetAllTrendingMovies';
+ private baseUrl='http://localhost:8082/';
   
   constructor(private http:HttpClient) { }
 
   GetAllTrendingMovies():Observable<Movies[]>{
-    return this.http.get<Movies[]>(this.baseUrl);
+    return this.http.get<Movies[]>(this.baseUrl+"GetAllTrendingMovies");
   }
 }
