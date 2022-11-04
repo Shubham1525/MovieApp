@@ -1,0 +1,21 @@
+<div class="content">
+    <!--div fxLayout="row wrap">
+      <div fxFlex="25%"-->
+    <ng-container *ngFor="let movie of movies">
+        <mat-card class="mat-elevation-z4 cardListItem">
+            <!--mat-card-header>
+      <mat-card-title>Mountains temp</mat-card-title>
+    </mat-card-header-->
+            <!--img class="card-img-top" data-bs-toggle="collapse" data-bs-target="collapser" role="button" aria-expanded="false" aria-controls="collapser" src="{{movie.thumbnailUrl}}" -->
+            <img mat-card-image-top src="{{movie.image}}" alt="Photo of a Shiba Inu" data-bs-toggle="collapse"
+                data-bs-target="collapser" role="button" aria-expanded="false" aria-controls="collapser">
+            <mat-card-content id="collapser">
+                <h2>{{movie.name}}</h2>
+                <p class="card-text">{{movie.genre}}</p>
+                <a href="#" class="btn btn-primary">View Summary</a>
+            </mat-card-content>
+        </mat-card>
+    </ng-container>
+</div>
+<!--/div>
+  </div-->
