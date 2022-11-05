@@ -10,15 +10,15 @@ import { Movies } from './movies';
 export class ConnectionService {
 
   movies : Movies[] | undefined;
-  private url = "http://localhost:8082/GetAllTrendingMovies"
+  private url = "http://localhost:8082"
   constructor(private http:HttpClient) { }
 
   getmoviedata(){
-    return this.http.get(this.url);
+    return this.http.get(`${this.url}/GetAllTrendingMovies`);
   }
 
   getMovieById(id: number) : Observable<Movies>{
-    return this.http.get<Movies>(`${this.url}/${id}`);
+    return this.http.get<Movies>(`${this.url}/details/${id}`);
   }
 
   }

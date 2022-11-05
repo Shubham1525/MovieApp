@@ -9,10 +9,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { DescrpageComponent } from './descrpage/descrpage.component';
 
-const routes: Routes = [
-  {path: 'descrpage/:id', component: DescrpageComponent}
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,8 +20,7 @@ const routes: Routes = [
     HttpClientModule,
     MatCardModule,
     MatExpansionModule,
-    MatFormFieldModule,
-    RouterModule.forRoot(routes)
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,7 +10,7 @@ import { Movies } from '../movies';
 })
 export class DescrpageComponent implements OnInit {
 
-  movies : Movies | undefined;
+  movie: Movies = new Movies();
   id!: number;
 
   constructor(private connect: ConnectionService, private router: Router, private route: ActivatedRoute) { }
@@ -18,7 +18,7 @@ export class DescrpageComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.connect.getMovieById(this.id).subscribe(data => {
-      this.movies = data;
+      this.movie = data;
     });
   }
 
