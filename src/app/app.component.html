@@ -93,11 +93,11 @@ Lorem ipsum dolor text....
     <mat-card-title>Mountains temp</mat-card-title>
   </mat-card-header-->
   <!--img class="card-img-top" data-bs-toggle="collapse" data-bs-target="collapser" role="button" aria-expanded="false" aria-controls="collapser" src="{{movie.thumbnailUrl}}" -->
-  <img mat-card-image-top src="{{movie.thumbnailUrl}}" alt="Photo of a Shiba Inu" data-bs-toggle="collapse" data-bs-target="collapser" role="button" aria-expanded="false" aria-controls="collapser">
-  <mat-card-content  id="collapser">
-    <h2>{{movie.title}}</h2>
+  <img mat-card-image-top class = "movie-img" src="{{movie.image}}" alt="Photo of a Shiba Inu" data-bs-toggle="collapse" data-bs-target="collapser" role="button" aria-expanded="false" aria-controls="collapser">
+  <mat-card-content  class = "movie-overview" id="collapser">
+    <h2>{{movie.name}}</h2>
     <p class="card-text">Some example text.</p>
-    <a href="#" class="btn btn-primary">View Summary</a>
+    <a href="#" class="btn btn-primary" onclick="descrmovie(movie.id)">View Summary</a>
   </mat-card-content>
 </mat-card>
 </ng-container>

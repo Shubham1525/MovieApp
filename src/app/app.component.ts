@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { ConnectionService } from './connection.service';
+import { Router } from '@angular/router';
+import { Movies } from './movies';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +10,9 @@ import { ConnectionService } from './connection.service';
 })
 export class AppComponent implements OnInit {
   title = 'MovieApp';
-  movies : any[] | undefined;
+  movies : Movies[] | undefined;
 
-  constructor(private connct : ConnectionService){
+  constructor(private connct : ConnectionService, private router: Router){
     this.connct.getmoviedata().subscribe((data: any)=>{
       this.movies = data;
     });
@@ -19,4 +21,7 @@ export class AppComponent implements OnInit {
   ngOnInit() : void{
     }
 
+  descrmovie(id: number){
+    this.router.navigate(['descrpage', id]);
+  }
   }
