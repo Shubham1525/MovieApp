@@ -12,6 +12,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTabsModule} from '@angular/material/tabs';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTabsModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

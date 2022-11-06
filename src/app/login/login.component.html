@@ -5,41 +5,50 @@
     <mat-tab-group>
         <mat-tab label="Sign In">
             <mat-card-content>
-                <form action="" fxLayoutAlign="stretch" fxLayout="column">
+                <form #loginform="ngForm" action="" fxLayoutAlign="stretch" fxLayout="column" (ngSubmit)="loginUser()">
+                    <small style="color:red;">{{msg}}</small>
+                   
                     <mat-form-field>
-                        <input matInput placeholder="Email ID" required name="email" ngModel #email="ngModel">
+                        <input matInput placeholder="Email ID" required name="email" ngModel #email="ngModel" [(ngModel)]="user.email">
                         <mat-error *ngIf="email.invalid"> Email is required </mat-error>
                     </mat-form-field>
+                    
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Password" required ngModel #password="ngModel">
-                        <mat-error *ngIf="password.invalid"> Password is required </mat-error>
-                        
+                        <input matInput type="password" placeholder="Password" required ngModel #password="ngModel" [(ngModel)]="user.password">
+                        <small *ngIf="password.errors?.['required']"> Password is required </small>
                     </mat-form-field>
-                    <button mat-raised-button type="submit" class="button"> Login In </button>    
+                    
+                    <button [disabled]="loginform.form.invalid" mat-raised-button type="submit" class="button"> Login </button>    
                 </form>
             </mat-card-content>
         </mat-tab>
 
+
         <mat-tab label=" New User ">
             <mat-card-content>
-                <form action="" fxLayoutAlign="stretch" fxLayout="column">
+                <form action="" #registerform="ngForm" fxLayoutAlign="stretch" fxLayout="column" (ngSubmit)="registerUser()">
+                    <small style="color:red;">{{msg}}</small>
+                    
                     <mat-form-field>
-                        <input matInput placeholder="Username" required name="username" ngModel #username="ngModel">
+                        <input matInput placeholder="Username" required name="username" ngModel #username="ngModel" [(ngModel)]="user.username">
                         <mat-error *ngIf="username.invalid"> Username is required </mat-error>
                     </mat-form-field>
+                    
                     <mat-form-field>
-                        <input matInput placeholder="Email ID" required name="email" ngModel #email="ngModel">
+                        <input matInput placeholder="Email ID" required name="email" ngModel #email="ngModel" [(ngModel)]="user.email">
                         <mat-error *ngIf="email.invalid"> Email is required </mat-error>
                     </mat-form-field>
+                    
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Password" required name="password" ngModel #password="ngModel">
-                        <mat-error *ngIf="password.invalid"> Password is required </mat-error>
+                        <input matInput type="password" placeholder="Password" required name="password" ngModel #password="ngModel" [(ngModel)]="user.password">
+                        <mat-error *ngIf="password.errors?.['required']"> Password is required </mat-error>
                     </mat-form-field>
+                    
                     <mat-form-field>
-                        <input matInput type="password" placeholder="Re-enter password" required name="repassword" ngModel #repassword="ngModel">
-                        <mat-error *ngIf="repassword.invalid"> password required </mat-error>
+                        <input matInput type="password" placeholder="Re-enter password" required name="repassword" ngModel #repassword="ngModel" (ngModel)="user.password">
+                        <mat-error *ngIf="repassword.errors?.['required']"> This field is required </mat-error>
                     </mat-form-field>
-                    <button mat-raised-button type="submit" class="button"> Register </button>
+                    <button [disabled]="registerform.form.invalid" mat-raised-button type="submit" class="button"> Register </button>
                 </form>
             </mat-card-content>
         </mat-tab>
