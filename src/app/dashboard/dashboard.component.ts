@@ -15,7 +15,7 @@ export class DashboardComponent implements OnInit {
   getTrendingMovies(){
     this.moviesservice.getTrendingMovies().subscribe(
       movie=>{
-        console.log(movie)
+        console.log(movie);
       },
       error=>{
         console.log(error);
