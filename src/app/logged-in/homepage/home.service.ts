@@ -21,14 +21,14 @@ export class HomeService {
   }
   insertreview(data:any){
     //const headers = {'Content-Type':'application/json'};
-    this.http.post(this.baseUrl,data)
+    this.http.post(this.baseUrl+"review",data)
     .subscribe((result)=>{
       console.warn("result",result)
     })
   }
 
   getreview():Observable<Reviews[]>{
-    return this.http.get<Reviews[]>(this.baseUrl);
+    return this.http.get<Reviews[]>(this.baseUrl+"reviews");
 
   }
 }
