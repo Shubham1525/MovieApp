@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Movies } from 'src/app/Interfaces/movie';
 import { HomeService } from '../homepage/home.service';
+import { Reviews } from './reviews';
 
 @Component({
   selector: 'app-descrpage',
@@ -12,6 +13,8 @@ export class DescrpageComponent implements OnInit {
 
   movie: Movies = new Movies();
   id!: number;
+  reviews : Reviews[] = []
+
 
   constructor(private router: Router, private route: ActivatedRoute, private connect: HomeService) { }
 
@@ -20,6 +23,12 @@ export class DescrpageComponent implements OnInit {
     this.connect.getMovieById(this.id).subscribe(data => {
       this.movie = data;
     });
+    this.connect.getreview().subscribe(data=>{
+      this.reviews=data;
+    });
+  }
+  onsubmit(data:any){
+    this.connect.insertreview(data);
   }
 
 }
