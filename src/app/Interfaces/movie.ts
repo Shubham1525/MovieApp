@@ -4,7 +4,8 @@ export class Movies {
     genre!:string;
     image!:string;
     rating!:number;
-    boolean!:boolean;
+    trending!:boolean;
     yoe!:number;
+    description!:string;
 }
 

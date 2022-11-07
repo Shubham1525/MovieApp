@@ -21,7 +21,7 @@ export class HomepageComponent implements OnInit {
   }
 
   descrmovie(id: number){
-    this.router.navigate(['descrpage', id]);
+    this.router.navigate(['loggedIn/descrpage', id]);
   }
 
 }

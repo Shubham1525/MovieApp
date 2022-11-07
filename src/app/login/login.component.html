@@ -5,17 +5,17 @@
         <mat-tab-group>
             <mat-tab label="Sign In">
                 <mat-card-content>
-                    <form action="" fxLayoutAlign="stretch" fxLayout="column">
+                    <form [formGroup]="signinForm" fxLayoutAlign="stretch" fxLayout="column"  (ngSubmit)="onSubmit(signinForm)">
                         <mat-form-field>
-                            <input matInput placeholder="Email ID" required name="email" ngModel #email="ngModel">
+                            <input matInput placeholder="Email ID" required name="email" formControlName="username">
                             <mat-error *ngIf="email.invalid"> Email is required </mat-error>
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput type="password" placeholder="Password" required ngModel #password="ngModel">
+                            <input matInput type="password" placeholder="Password" formControlName="password">
                             <mat-error *ngIf="password.invalid"> Password is required </mat-error>
 
                         </mat-form-field>
-                        <button mat-raised-button type="submit" class="button" routerLink="/loggedIn/home">Login In </button>
+                        <button mat-raised-button inputType="submit" class="button" (onClickEvent)="onSubmit(signinForm)">Login In </button>
                     </form>
                 </mat-card-content>
             </mat-tab>

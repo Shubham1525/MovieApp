@@ -17,7 +17,7 @@ export class HomeService {
   }
 
   getMovieById(id: number) : Observable<Movies>{
-    return this.http.get<Movies>(`${this.baseUrl}/${id}`);
+    return this.http.get<Movies>(`${this.baseUrl}details/${id}`);
   }
   insertreview(data:any){
     //const headers = {'Content-Type':'application/json'};

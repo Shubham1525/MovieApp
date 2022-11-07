@@ -11,10 +11,11 @@ const routes: Routes = [
 children:
 [
   {path: 'home', component: HomepageComponent},
+  {path: 'descrpage/:id', component: DescrpageComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ] },
 { path: 'login', component: LoginComponent},
-{path: 'descrpage/:id', component: DescrpageComponent}
+
 ];
 
 @NgModule({

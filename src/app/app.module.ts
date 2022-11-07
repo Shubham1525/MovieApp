@@ -15,9 +15,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NavbarComponent } from './logged-in/navbar/navbar.component';
 import { HomepageComponent } from './logged-in/homepage/homepage.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
 import { DescrpageComponent } from './logged-in/descrpage/descrpage.component';
 import { ReviewspageComponent } from './logged-in/descrpage/reviewspage/reviewspage.component';
+import { AuthService } from '../app/login/auth.service';
+import { AuthGuard } from '../app/interceptors/auth-guard';
+import { AuthInterceptor } from '../app/interceptors/http-interceptors';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,7 @@ import { ReviewspageComponent } from './logged-in/descrpage/reviewspage/reviewsp
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard,[{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}]],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
