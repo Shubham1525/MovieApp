@@ -4,6 +4,7 @@ import { HomepageComponent } from './logged-in/homepage/homepage.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { LoginComponent } from './login/login.component';
 import { DescrpageComponent } from './logged-in/descrpage/descrpage.component';
+import { FavouritespageComponent } from './logged-in/favouritespage/favouritespage.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -14,7 +15,8 @@ children:
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ] },
 { path: 'login', component: LoginComponent},
-{path: 'descrpage/:id', component: DescrpageComponent}
+{path: 'descrpage/:id', component: DescrpageComponent},
+{ path: '/favourites', component: FavouritespageComponent}
 ];
 
 @NgModule({

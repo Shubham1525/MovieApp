@@ -18,6 +18,7 @@ import { LoggedInComponent } from './logged-in/logged-in.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DescrpageComponent } from './logged-in/descrpage/descrpage.component';
 import { ReviewspageComponent } from './logged-in/descrpage/reviewspage/reviewspage.component';
+import { FavouritespageComponent } from './logged-in/favouritespage/favouritespage.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReviewspageComponent } from './logged-in/descrpage/reviewspage/reviewsp
     HomepageComponent,
     LoggedInComponent,
     DescrpageComponent,
-    ReviewspageComponent
+    ReviewspageComponent,
+    FavouritespageComponent
   ],
   imports: [
     BrowserModule,
