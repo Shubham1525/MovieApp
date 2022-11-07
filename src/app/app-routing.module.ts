@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './logged-in/homepage/homepage.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { LoginComponent } from './login/login.component';
+import { DescrpageComponent } from './logged-in/descrpage/descrpage.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,6 +14,7 @@ children:
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ] },
 { path: 'login', component: LoginComponent},
+{path: 'descrpage/:id', component: DescrpageComponent}
 ];
 
 @NgModule({

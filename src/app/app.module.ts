@@ -16,6 +16,8 @@ import { NavbarComponent } from './logged-in/navbar/navbar.component';
 import { HomepageComponent } from './logged-in/homepage/homepage.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DescrpageComponent } from './logged-in/descrpage/descrpage.component';
+import { ReviewspageComponent } from './logged-in/descrpage/reviewspage/reviewspage.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     NavbarComponent,
     HomepageComponent,
-    LoggedInComponent
+    LoggedInComponent,
+    DescrpageComponent,
+    ReviewspageComponent
   ],
   imports: [
     BrowserModule,
