@@ -12,7 +12,7 @@
             <mat-card-content id="collapser">
                 <h2>{{movie.name}}</h2>
                 <p class="card-text">{{movie.genre}}</p>
-                <a href="#" class="btn btn-primary">View Summary</a>
+                <button mat-raised-button class="btn-primary" (click)="descrmovie(movie.id)">View Summary</button>
             </mat-card-content>
         </mat-card>
     </ng-container>

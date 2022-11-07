@@ -14,4 +14,8 @@ export class HomeService {
   GetAllTrendingMovies():Observable<Movies[]>{
     return this.http.get<Movies[]>(this.baseUrl+"GetAllTrendingMovies");
   }
+
+  getMovieById(id: number) : Observable<Movies>{
+    return this.http.get<Movies>(`${this.baseUrl}/${id}`);
+  }
 }
