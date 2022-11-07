@@ -9,3 +9,10 @@ export class Movies {
     description!:string;
 }
 
+export class Reviews{
+
+    id!:number;
+    username!:string;
+    reviews!:string
+}
+

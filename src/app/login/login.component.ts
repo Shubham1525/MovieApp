@@ -10,14 +10,22 @@ import { AuthService } from './auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  registerinForm!:FormGroup
   signinForm!: FormGroup;
   constructor( private fb: FormBuilder,private router: Router,private authService:AuthService) { }
 
   ngOnInit(): void {
     this.signinForm = this.fb.group({
-      username: ['Shubhamk116@gmail.com', [Validators.required]],
-      password: ['Shubh123', [Validators.required]],
+      username: ['Shubham', [Validators.required]],
+      password: ['123', [Validators.required]],
     });
+
+    this.registerinForm = this.fb.group({
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      email:['',[Validators.email]],
+      confirmPassword:['',[Validators.required]]
+    })
   }
 
   /* -----Return email control ----*/
@@ -32,15 +40,22 @@ export class LoginComponent implements OnInit {
 
   onSubmit(formGroup: FormGroup) {
    
-    // const basicAutToken = localStorage.getItem(LOCAL_STORAGE_KEYS.BASIC_AUTH_TOKEN);
-    // if(basicAutToken === undefined || basicAutToken === null) {
-    //   this.helperService.fetchBasicAuthToken();
-    // }
     this.authService.login(formGroup.value.username, formGroup.value.password).subscribe({
       next: (res:any) => {
         console.log(res.token);
         this.authService.loginUser(res.token)
         this.router.navigate(['../loggedIn/home']);  
+      },
+      error: (err) => console.log(err)
+    });
+  }
+
+  onRegister(formGroup: FormGroup) {
+   
+
+    this.authService.register(formGroup.value.username, formGroup.value.password,formGroup.value.email).subscribe({
+      next: (res:any) => {
+        console.log(res); 
       },
       error: (err) => console.log(err)
     });

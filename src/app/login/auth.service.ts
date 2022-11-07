@@ -16,6 +16,13 @@ export class AuthService {
     "password": password})
   }
 
+  register(username:any,password:any,email:any){
+    return this.http.post(`${this.url}/register`,
+    {"username": username,
+    "password": password,
+    "email":email})
+  }
+
   //for login user
   loginUser(token:any){
     localStorage.setItem("token",token)

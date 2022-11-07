@@ -40,19 +40,19 @@
     </thead>
     <tbody>
     <tr *ngFor="let rev of reviews">
-        <td>{{rev.name}}</td>
-        <td>{{rev.review}}</td>
+        <td>{{rev.username}}</td>
+        <td>{{rev.reviews}}</td>
     </tr>
     </tbody>
   </table>
 <br>
 
-<form #review="ngForm" (ngSubmit)="onsubmit(review.value)">
-    <input type="text" name="name" placeholder="username" ngModel><br>
-    <textarea name="review" rows="4" cols="50" ngModel>
+<form [formGroup]="reviewForm" (ngSubmit)="onReview(reviewForm)">
+    <input type="text" name="name" placeholder="username" formControlName="username"><br>
+    <textarea name="review" rows="4" cols="50" formControlName="reviews">
         Write your review here....
     </textarea><br>
-    <input type="submit" value="submit">
+    <button inputType="submit" value="submit" (onClickEvent)="onReview(reviewForm)">Submit</button>
   </form>
 
 </div>

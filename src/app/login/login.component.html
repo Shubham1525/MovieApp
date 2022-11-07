@@ -7,12 +7,12 @@
                 <mat-card-content>
                     <form [formGroup]="signinForm" fxLayoutAlign="stretch" fxLayout="column"  (ngSubmit)="onSubmit(signinForm)">
                         <mat-form-field>
-                            <input matInput placeholder="Email ID" required name="email" formControlName="username">
-                            <mat-error *ngIf="email.invalid"> Email is required </mat-error>
+                            <input matInput placeholder="Username" name="username" formControlName="username">
+                            <mat-error *ngIf="username?.errors?.['required']"> Username is required </mat-error>
                         </mat-form-field>
                         <mat-form-field>
                             <input matInput type="password" placeholder="Password" formControlName="password">
-                            <mat-error *ngIf="password.invalid"> Password is required </mat-error>
+                            <mat-error *ngIf="password?.errors?.['required']"> Password is required </mat-error>
 
                         </mat-form-field>
                         <button mat-raised-button inputType="submit" class="button" (onClickEvent)="onSubmit(signinForm)">Login In </button>
@@ -22,26 +22,20 @@
 
             <mat-tab label=" New User ">
                 <mat-card-content>
-                    <form action="" fxLayoutAlign="stretch" fxLayout="column">
+                    <form [formGroup]="registerinForm" fxLayoutAlign="stretch" fxLayout="column" (ngSubmit)="onRegister(registerinForm)">
                         <mat-form-field>
-                            <input matInput placeholder="Username" required name="username" ngModel #username="ngModel">
-                            <mat-error *ngIf="username.invalid"> Username is required </mat-error>
+                            <input matInput placeholder="username" name="username" formControlName="username">
+                            <mat-error *ngIf="username?.errors?.['required']"> Username is required </mat-error>
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput placeholder="Email ID" required name="email" ngModel #email="ngModel">
-                            <mat-error *ngIf="email.invalid"> Email is required </mat-error>
+                            <input matInput placeholder="Email ID" name="email" formControlName="email" >
+                            
                         </mat-form-field>
                         <mat-form-field>
-                            <input matInput type="password" placeholder="Password" required name="password" ngModel
-                                #password="ngModel">
-                            <mat-error *ngIf="password.invalid"> Password is required </mat-error>
+                            <input matInput type="password" placeholder="Password" formControlName="password">
+                            <mat-error *ngIf="password?.errors?.['required']"> Password is required </mat-error>
                         </mat-form-field>
-                        <mat-form-field>
-                            <input matInput type="password" placeholder="Re-enter password" required name="repassword"
-                                ngModel #repassword="ngModel">
-                            <mat-error *ngIf="repassword.invalid"> password required </mat-error>
-                        </mat-form-field>
-                        <button mat-raised-button type="submit" class="button"> Register </button>
+                        <button mat-raised-button inputType="submit" class="button" (onClickEvent)="onRegister(registerinForm)"> Register </button>
                     </form>
                 </mat-card-content>
             </mat-tab>

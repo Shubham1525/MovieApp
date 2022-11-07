@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Movies } from 'src/app/Interfaces/movie';
-import { Reviews } from '../descrpage/reviews';
+import { Movies, Reviews } from 'src/app/Interfaces/movie';
+
 
 @Injectable({
   providedIn: 'root'
@@ -19,16 +19,14 @@ export class HomeService {
   getMovieById(id: number) : Observable<Movies>{
     return this.http.get<Movies>(`${this.baseUrl}details/${id}`);
   }
-  insertreview(data:any){
-    //const headers = {'Content-Type':'application/json'};
-    this.http.post(this.baseUrl,data)
-    .subscribe((result)=>{
-      console.warn("result",result)
-    })
+  insertreview(username:any,reviews:any){
+    return this.http.post(`${this.baseUrl}addReview`,
+    {"username": username,
+    "reviews": reviews})
   }
 
-  getreview():Observable<Reviews[]>{
-    return this.http.get<Reviews[]>(this.baseUrl);
 
+  getreview():Observable<Reviews[]>{
+    return this.http.get<Reviews[]>(`${this.baseUrl}getReviews`);
   }
 }
