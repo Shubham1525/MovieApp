@@ -1,0 +1,58 @@
+
+<div class="container bootdey mt-4">
+<div class="col-md-12">
+<section class="panel">
+      <div class="panel-body">
+          <div class="col-md-6">
+              <div class="pro-img-details">
+                  <img src="{{movie.image}}" alt="">
+              </div>
+              
+          </div>
+          <div class="col-md-6">
+              <h4 class="pro-d-title">
+                  <a href="#" class="">
+                    {{movie.name}}
+                  </a>
+              </h4>
+              <p>
+                  {{movie.description}}
+              </p>
+              <div class="product_meta">
+                  <span class="posted_in"> <strong>Genre: </strong> <a rel="tag" href="#">{{movie.genre}}</a></span>
+                  <span class="tagged_as"><strong>Ratings: </strong> <a rel="tag" href="#">{{movie.rating}}</a></span>
+              </div>
+          </div>
+      </div>
+  </section>
+  </div>
+  </div>
+
+<div class="container">
+<table class="table table-bordered table-striped table-hover" border="1">
+    <!-- <table border="1"> -->
+    <thead class="thead-dark">
+        <!-- <thead> -->
+        <tr>
+            <th>Name</th>
+            <th>Review</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let rev of reviews">
+        <td>{{rev.username}}</td>
+        <td>{{rev.reviews}}</td>
+    </tr>
+    </tbody>
+  </table>
+<br>
+
+<form [formGroup]="reviewForm" (ngSubmit)="onReview(reviewForm)">
+    <input type="text" name="name" placeholder="username" formControlName="username"><br>
+    <textarea name="review" rows="4" cols="50" formControlName="reviews">
+        Write your review here....
+    </textarea><br>
+    <button inputType="submit" value="submit" (onClickEvent)="onReview(reviewForm)">Submit</button>
+  </form>
+
+</div>
